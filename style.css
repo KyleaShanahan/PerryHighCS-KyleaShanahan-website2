@@ -1,0 +1,22 @@
+        
+        body{
+        color: red;
+        background-image: url("AC-DC.png");
+        background-size: cover;
+        }
+        
+        h1 {
+        color: Darkblue;
+        }
+          #textbox{
+          list-style-type:none;
+            margin: 0;
+            padding: 0'
+            overflow: hidden;
+            background-color: #333;
+            
+          }
+        #listbox{
+        float: left;
+        
+        }
