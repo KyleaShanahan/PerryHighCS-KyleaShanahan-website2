@@ -1,13 +1,278 @@
 <!doctype html>
 <html>
-<head>
-  <link rel ="stylesheet" type="text/css" href ="css.css">
-<title>MY Website</title>
-<script>
-alert("Eureka!");
-</script>
-</head>
-<body>
-<h1>I DID IT!!!</h1>
-</body>
+	<head>
+		<title>Breakout</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://static.codehs.com/gulp/cb01b4a22ffd3971572a8a1ab9f3b7c4cb17f383/chs-js-lib/chs.js"></script>
+		<script>
+                      window.onload = function() {
+/* constants for Bricks */
+var NUM_ROWS = 8;
+var BRICK_TOP_OFFSET = 10;
+var BRICK_SPACING = 2;
+var NUM_BRICKS_PER_ROW = 10;
+var BRICK_HEIGHT = 10;
+var SPACE_FOR_BRICKS = getWidth() - (NUM_BRICKS_PER_ROW + 1) * BRICK_SPACING;
+var BRICK_WIDTH = SPACE_FOR_BRICKS / NUM_BRICKS_PER_ROW;
+
+var jerry = BRICK_SPACING + BRICK_HEIGHT;
+
+/* Constants for ball and paddle */
+var PADDLE_WIDTH = 80;
+var PADDLE_HEIGHT = 15;
+var PADDLE_OFFSET = 10;
+
+var BALL_RADIUS = 15;
+var running = true;
+var ball;
+ball = new Circle(15);
+ball.setPosition(200, 200);
+add(ball);
+
+var check = 0;
+
+var dx = 6;
+var dy = 8;
+
+var paddle = new Rectangle(PADDLE_WIDTH, PADDLE_HEIGHT);
+var check = 1;
+
+/* Text */
+var lose = new Text("You Lose", "25pt Slab Serif");
+lose.setPosition(200,200);
+lose.setColor(Randomizer.nextColor());
+
+var score1 = 0;
+
+
+
+function start(){
+	mouseMoveMethod(movePaddle);
+	paddle.setPosition(getWidth()/2-PADDLE_WIDTH/2, getHeight()-PADDLE_OFFSET*2);
+	add(paddle);
+	
+	bricks();
+	
+	setTimer(draw, 20);
+
+}
+
+function draw(){
+	checkWalls();
+	ball.move(dx, dy);
+	destroy();
+	checkFalls();
+
+}
+
+/* Ending functions */
+
+function seizure(){
+    var win = new Text("You Win " , "30pt ZapfHumnst BT");
+    win.setColor(Randomizer.nextColor());
+    win.setPosition(150, 200);
+    add(win);
+}
+
+
+
+function checkFalls(){
+   if(check == 4){
+       stopTimer(draw);
+       remove(ball);
+       var lose = new Text("Game Over" , "30pt Steamer");
+       lose.setPosition(100, 200);
+       lose.setColor(Color.red);
+       add(lose);
+       
+       
+       
+       println("Try again");
+       
+       var score = new Text("You Scored " + score1 , "20pt Steamer");
+       score.setPosition(100, 230);
+       score.setColor(Color.green);
+       add(score);
+       
+       
+   
+    } 
+    
+    /* Win function */
+    
+    if(score1 == 1){
+        stopTimer(draw);
+        remove(ball);
+        var win = new Text("You Win " , "30pt ZapfHumnst BT");
+        win.setColor(Color.cyan);
+        win.setPosition(150, 200);
+        add(win);
+        setTimer(seizure , 10);
+    }
+}
+
+function destroy(){
+    var death = getElementAt(ball.getX() , ball.getY() );
+    if(death != null && death != ball && death != paddle){
+        death.setPosition(-50, -50);
+        remove(death);
+        dy =-dy;
+        score1++;
+    } else if (death == paddle){
+        dy = -dy;
+    }   
+}
+
+
+
+function checkWalls(){
+	// Bounce off right wall
+	if(ball.getX() + ball.getRadius() > getWidth()){
+		dx = -dx;
+	
+	}
+	
+	// Bounce off left wall
+	if(ball.getX() - ball.getRadius() < 0){
+		dx = -dx;
+	}
+	
+	// Bounce off bottom wall
+	if(ball.getY() + ball.getRadius() > getHeight()){
+		stopTimer(draw);
+		running = false;
+		mouseClickMethod(restart);
+		
+		ball.setPosition(200, 240);
+	    check++;
+	    
+	}
+	
+	// Bounce off top wall
+	if(ball.getY() - ball.getRadius() < 0){
+		dy = -dy;
+    	}
+}
+
+
+
+/* Set up for Bricks */
+function bricks(){
+    var color = Color.red;
+    var x = BRICK_SPACING;
+    var y = BRICK_TOP_OFFSET;
+    
+    for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+    y += jerry;
+    color = Color.red
+    x = BRICK_SPACING;
+    
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+    y += jerry;
+    color = Color.orange
+    x = BRICK_SPACING;
+    for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+    y += jerry;
+    color = Color.orange
+    x = BRICK_SPACING;
+    
+    for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+    y += jerry;
+    color = Color.green
+    x = BRICK_SPACING;
+
+    for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+    y += jerry;
+    color = Color.green
+    x = BRICK_SPACING;
+    for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+    y += jerry;
+    color = Color.blue
+    x = BRICK_SPACING;
+    for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+    y += jerry;
+    color = Color.blue
+    x = BRICK_SPACING;
+    
+    for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+        var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+        brick.setColor(color);
+        brick.setPosition(x, y)
+        add(brick);
+        x += BRICK_SPACING + BRICK_WIDTH;
+    }
+}
+
+function movePaddle(e){
+    var y = paddle.getY();
+    var x = e.getX() - PADDLE_WIDTH/2;
+    paddle.setPosition(x, y);
+}
+
+/* Pasue then start function */
+function restart(){
+    if (!running) {
+        setTimer(draw, 20);
+        running = true;
+    }
+}
+
+                        if (typeof start === 'function') {
+                            start();
+                        }
+                    };
+  	</script>
+		<style>
+			canvas {
+    				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="canvasContainer" width="100%" style="width: 100%; height: 100%; overflow: hidden;">
+			<canvas width="400" height="500" class="codehs-editor-canvas"></canvas>
+		</div>
+	</body>
 </html>
