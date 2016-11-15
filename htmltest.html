@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel = "stylesheet" type ="text/css"
+              href="style.css">
+        <script>
+            function testHTML(){
+                var input = document.getElementById("inputText");
+                var s1 = document.getElementById("s1");
+                s1.innerHTML = input.value;
+            }
+            
+        </script>
+    </head>
+    <body>
+        
+        <ul class="Nav">
+    
+    <li class="Nav"><a class="active" href="#home">Home</a></li>
+  <li class="Nav"><a href="bio.html">Biography</a></li>
+  <li class="Nav"><a href="breakout.html">Minigame</a></li>
+  <li class="Nav"><a href="popup.html">Popup</a></li>
+  <li class="Nav"><a href="htmltest.html">htmltest</a></li>
+</ul>
+        
+        <br>
+        
+        <textarea rows="10" cols="80" id="inputText">Input HTML to test Here</textarea>
+        <button onclick="testHTML();">Test IT!</button>
+        <br>
+        <span id="s1"></span>
+    </body>
+</html>

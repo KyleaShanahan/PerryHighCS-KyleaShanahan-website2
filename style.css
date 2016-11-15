@@ -20,8 +20,9 @@ li.Nav a {
     text-decoration: none;
 }
 
-li.Nav a:hover {
-    background-color: #111;
+li.Nav a:hover{
+    color: black; background-color: #111;
+    background-color: blue;
 }
 
 
