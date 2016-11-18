@@ -5,15 +5,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
          <script>
-            function testHTML(){
-                var input = document.getElementById("inputText");
-                var s1 = document.getElementById("s1");
-                s1.innerHTML = input.value;
-            }
+            function addList(){
+                var list = document.getElementById("list");
+                var item = document.createElement("li");
+                var text = document.getElementById("inputText").value;
+                item.textContent = text;
+                list.appendChild(item);
+    }
             </script>
       
     </head>
     <body>
-        
+         <textarea rows="10" cols="80" id="inputText">Input HTML to test Here</textarea>
+        <button onclick="testHTML();">Add</button>
+    <span id="s1"></span>
+    
+    <textarea rows="10" cols="80" id="inputText">Make a list</textarea>
+    <button onclick="add();"></button>
+    <span id="s1"></span>
     </body>
 </html>
