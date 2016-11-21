@@ -1,0 +1,82 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel = "stylesheet" type ="text/css"
+              href="style.css">
+        
+        <script>
+            var player = "1";
+            function move(square){
+                var cell = document.getElementById(square);
+                if(cell.textContent === ""){
+                    if(player === "1"){
+                        var text = "X";
+                        
+                        cell.textContent = text;
+                        player = "2";
+                    }else{
+                        var text = "O";
+                        cell.textContent = text;
+                        
+                        player = "1";
+                    }
+                }else{
+                    var text = "That is not a valid box.";
+                    var cell = document.getElementById("message");
+                    cell.textContent= text;
+                }
+            }
+            
+        </script>
+        
+        <style>
+             td{
+                border: 1px solid black;
+                font-size: 80px;
+                text-align:center;
+                height: 100px;
+                width: 100px;
+            }
+            </style>
+    </head>
+    <body>
+       <ul class="Nav">
+    
+    <li class="Nav"><a class="active" href="index.html">Home</a></li>
+  <li class="Nav"><a href="bio.html">Biography</a></li>
+  <li class="Nav"><a href="breakout.html">Minigame</a></li>
+  <li class="Nav"><a href="popup.html">Popup</a></li>
+  <li class="Nav"><a href="htmltest.html">htmltest</a></li>
+  <li class="Nav"><a href="todolist.html">Todolist</a></li>  
+  <li class="Nav"><a href="tictactoe.html">TicTacToe</a></li>
+       </ul>
+    <center>
+        <table>
+            <tr>
+                <td id="1" onClick="move('1')"></td>
+                <td id="2" onClick="move('2')"></td>
+                <td id="3" onClick="move('3')"></td>
+            </tr>
+            <tr>
+                <td id="4" onClick="move('4')"></td>
+                <td id="5" onClick="move('5')"></td>
+                <td id="6" onClick="move('6')"></td>
+            </tr>
+            <tr>
+                <td id="7" onClick="move('7')"></td>
+                <td id="8" onClick="move('8')"></td>
+                <td id="9" onClick="move('9')"></td>
+            </tr>
+            </table>
+        <br>
+        <span id="message"</span>
+        </center>
+    
+    
+</body>
+</html>
