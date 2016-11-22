@@ -19,16 +19,18 @@ and open the template in the editor.
                         
                         cell.textContent = text;
                         player = "2";
-                    }else{
+                    } else {
                         var text = "O";
                         cell.textContent = text;
                         
                         player = "1";
                     }
-                }else{
+                    var msgCell = document.getElementById("message");
+                    msgCell.textContent= "";
+                } else {
                     var text = "That is not a valid box.";
-                    var cell = document.getElementById("message");
-                    cell.textContent= text;
+                    var msgCell = document.getElementById("message");
+                    msgCell.textContent= text;
                 }
             }
             
