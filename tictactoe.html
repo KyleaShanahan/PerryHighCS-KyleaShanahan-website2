@@ -10,30 +10,64 @@ and open the template in the editor.
               href="style.css">
         
         <script>
-            var player = "1";
+            var player = "1";0
+            var winner = 0;
             function move(square){
+                if(winner == 0){
                 var cell = document.getElementById(square);
                 if(cell.textContent === ""){
+                    var msgCell = document.getElementById("message");
+                    msgCell.textContent= "";
                     if(player === "1"){
                         var text = "X";
-                        
                         cell.textContent = text;
+                        checkWin();
                         player = "2";
                     } else {
                         var text = "O";
                         cell.textContent = text;
-                        
+                        checkWin();
                         player = "1";
                     }
-                    var msgCell = document.getElementById("message");
-                    msgCell.textContent= "";
+                    
                 } else {
                     var text = "That is not a valid box.";
                     var msgCell = document.getElementById("message");
                     msgCell.textContent= text;
                 }
             }
+        }
             
+            
+            
+            function checkWin(){
+                check3Cells("1","2","3");
+                check3Cells("4","5","6");
+                check3Cells("7","8","9");
+                check3Cells("1","4","7");
+                check3Cells("2","5","8");
+                check3Cells("3","6","9");
+                check3Cells("1","5","9");
+                check3Cells("3","5","7");
+            }
+            function check3Cells(c1id,c2id,c3id){
+                var c1 = document.getElementById(c1id).textContent;
+                var c2 = document.getElementById(c2id).textContent;
+                var c3 = document.getElementById(c3id).textContent;
+                if((c1 === c2) && (c2 === c3) && (c1 !== "")){
+                    console.log(c1 +"won")
+                   win(c1);
+                }
+            }
+            
+            function win(p){
+                console.log("x");
+                var text = p+ "  won!";
+                var msgCell = document.getElementById("message");
+                msgCell.textContent= text;
+                winner = 1;
+                font-size: 40 px;
+            }
         </script>
         
         <style>
@@ -77,8 +111,7 @@ and open the template in the editor.
             </table>
         <br>
         <span id="message"</span>
-        </center>
-    
-    
+        
+    </center>
 </body>
 </html>
