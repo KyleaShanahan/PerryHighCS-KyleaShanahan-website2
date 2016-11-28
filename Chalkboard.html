@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Todolist</title>
+        <title>ChalkBoard</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel = "stylesheet" type ="text/css"
               href="style.css">
          <script>
-            function addlist(){
-                var list = document.getElementById("list");
+        function addlist(){
+                for(var i = 0; i < 100; i++){
+                    var list = document.getElementById("list");
                 var item = document.createElement("li");
                 var text = document.getElementById("inputText").value;
                 item.textContent = text;
                 list.appendChild(item);
+                }
     }
             </script>
      
@@ -31,11 +33,7 @@
     
     <textarea rows="10" cols="80" id="inputText">Make a list</textarea>
     <button onclick="addlist();">Button</button>
-    <ul id="list"></ul>
-    
-         
-    
-
+    <ol id="list"></ol>
     
     </body>
 </html>

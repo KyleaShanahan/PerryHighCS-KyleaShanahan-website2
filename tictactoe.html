@@ -42,7 +42,7 @@ and open the template in the editor.
             
             function checkWin(){
                 check3Cells("1","2","3");
-                check3Cells("4","5","6");
+                check3Cells("4","5","6"); 
                 check3Cells("7","8","9");
                 check3Cells("1","4","7");
                 check3Cells("2","5","8");
@@ -57,6 +57,9 @@ and open the template in the editor.
                 if((c1 === c2) && (c2 === c3) && (c1 !== "")){
                     console.log(c1 +"won")
                    win(c1);
+                   c1.style.color = "red";
+                   c2.style.color = "red";
+                   c3.style.color = "red";
                 }
             }
             
@@ -65,8 +68,7 @@ and open the template in the editor.
                 var text = p+ "  won!";
                 var msgCell = document.getElementById("message");
                 msgCell.textContent= text;
-                winner = 1;
-                font-size: 40 px;
+                winner = 1;    
             }
         </script>
         
@@ -81,7 +83,7 @@ and open the template in the editor.
             </style>
     </head>
     <body>
-       <ul class="Nav">
+        <ul class="Nav">
     
     <li class="Nav"><a class="active" href="index.html">Home</a></li>
   <li class="Nav"><a href="bio.html">Biography</a></li>
@@ -90,6 +92,7 @@ and open the template in the editor.
   <li class="Nav"><a href="htmltest.html">htmltest</a></li>
   <li class="Nav"><a href="todolist.html">Todolist</a></li>  
   <li class="Nav"><a href="tictactoe.html">TicTacToe</a></li>
+  <li class="Nav"><a href="Chalkboard.html">ChalkBoard</a></li>
        </ul>
     <center>
         <table>
