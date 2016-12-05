@@ -22,7 +22,7 @@
         </style>
         <script>
             function buildTimesTable() {
-                
+
                 //Remove Old multiplication Table
                 var timesTable = document.getElementById("timesTable");
                 if (timesTable != null) {
@@ -60,20 +60,20 @@
                                     tableData.style.color = "blue";
                                 } else {
                                     tableData.style.color = "violet";
-                                }                           
                                 }
-                                var ans = i * cell;
-                                tableRow.appendChild(tableData);
-                                tableData.textContent = ans;
-
-
-
-
-
                             }
+                            var ans = i * cell;
+                            tableRow.appendChild(tableData);
+                            tableData.textContent = ans;
+
+
+
+
+
                         }
                     }
-                }           
+                }
+            }
         </script>
     </head>
     <body onload="buildTimesTable();">
@@ -86,17 +86,18 @@
             <li class="Nav"><a href="todolist.html">Todolist</a></li>  
             <li class="Nav"><a href="tictactoe.html">TicTacToe</a></li>
             <li class="Nav"><a href="Chalkboard.html">ChalkBoard</a></li>
-            <li class="Nav"><a href="MultiplicationTable.html">InteractiveTable</a></li>
+            <li class="Nav"><a href="MultiplicationTable.html">Mult.Table</a></li>
             <li class="Nav"><a href="Mult.2Table.html">Mult.2Table</a></li>
+            <li class="Nav"><a href="sitemap.html">SiteMap</a></li>
         </ul>
-    <div id="center"><h1>Multiplication Table</h1>
-    Table Width:<input type="range" id="tableWidth" min="1" max="200" value="10"
-                       onchange="buildTimesTable();"><br>
-    Table Height:<input type="range" id="tableHeight" min="1" max="200" value="10"
-                       onchange="buildTimesTable();"><br>
-    </div>
+        <div id="center"><h1>Multiplication Table</h1>
+            Table Width:<input type="range" id="tableWidth" min="1" max="200" value="10"
+                               onchange="buildTimesTable();"><br>
+            Table Height:<input type="range" id="tableHeight" min="1" max="200" value="10"
+                                onchange="buildTimesTable();"><br>
+        </div>
 
-    
-    
-</body>  
+
+
+    </body>  
 </html>

@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ChalkBoard</title>
+        <title>Sitemap</title>
+        <link rel = "stylesheet" type ="text/css" href="style.css">
+        <script src="sitemap.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel = "stylesheet" type ="text/css"
-              href="style.css">
-        <script>
-            function addlist() {
-                for (var i = 0; i < 100; i++) {
-                    var list = document.getElementById("list");
-                    var item = document.createElement("li");
-                    var text = document.getElementById("inputText").value;
-                    item.textContent = text;
-                    list.appendChild(item);
-                }
-            }
-        </script>
-
     </head>
-    <body>
+    <body onload="buildMap('sitemap');">
         <ul class="Nav">
             <li class="Nav"><a class="active" href="index.html">Home</a></li>
             <li class="Nav"><a href="bio.html">Biography</a></li>
@@ -32,11 +20,6 @@
             <li class="Nav"><a href="Mult.2Table.html">Mult.2Table</a></li>
             <li class="Nav"><a href="sitemap.html">SiteMap</a></li>
         </ul>
-
-
-        <textarea rows="10" cols="80" id="inputText">Make a list</textarea>
-        <button onclick="addlist();">Button</button>
-        <ol id="list"></ol>
-
+        <div id="sitemap"></div>
     </body>
 </html>
