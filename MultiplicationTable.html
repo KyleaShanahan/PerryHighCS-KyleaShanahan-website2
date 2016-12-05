@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Multiplication Table</title>
+        <link rel = "stylesheet" type ="text/css"
+              href="style.css">
+        <style>
+            table, td, th {
+                border: solid 1px;         
+            }
+            td {
+                text-align: right;
+            }
+        </style>
+        <script>
+            function buildTimesTable() {
+                //Creates Table
+                var timesTable = document.createElement("table");
+                timesTable.id = "timesTable";
+
+                //adds the table's body
+                var body = document.getElementById("center");
+                body.appendChild(timesTable);
+                //Table itSelf
+                for (i = 0; i < 11; i++) {
+                    var tableRow = document.createElement("tr");
+                    timesTable.appendChild(tableRow);
+                    for (var cell = 0; cell < 11; cell++) {
+                        var tableData;
+                        if (i == 0) {
+                            var tableData = document.createElement("th");
+                            tableRow.appendChild(tableData);
+                            tableData.textContent = cell;
+                        } else {
+                            if (cell == 0) {
+                                var tableData = document.createElement("th");
+                                tableRow.appendChild(tableData);
+                                tableData.textContent = i;
+                            } else {
+                                var tableData = document.createElement("th");
+                                if ((cell + 1) % 3 == 0) {
+                                    tableData.style.color = "blue";
+                                } else {
+                                    tableData.style.color = "violet"
+                                }
+                                var ans = i * cell;
+                                tableRow.appendChild(tableData);
+                                tableData.textContent = ans;
+
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body onload="buildTimesTable();">
+        <ul class="Nav">
+            <li class="Nav"><a class="active" href="index.html">Home</a></li>
+            <li class="Nav"><a href="bio.html">Biography</a></li>
+            <li class="Nav"><a href="breakout.html">Minigame</a></li>
+            <li class="Nav"><a href="popup.html">Popup</a></li>
+            <li class="Nav"><a href="htmltest.html">htmltest</a></li>
+            <li class="Nav"><a href="todolist.html">Todolist</a></li>  
+            <li class="Nav"><a href="tictactoe.html">TicTacToe</a></li>
+            <li class="Nav"><a href="Chalkboard.html">ChalkBoard</a></li>
+            <li class="Nav"><a href="MultiplicationTable.html">Mult.Table</a></li>
+            <li class="Nav"><a href="Mult.2Table.html">Mult.2Table</a></li>
+        </ul>
+    <center id="center"><h1>Multiplication Table</h1></center>
+    </body>  
+</html>
