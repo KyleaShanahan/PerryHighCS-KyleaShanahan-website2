@@ -1,23 +1,11 @@
+ 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ChalkBoard</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
         <link rel = "stylesheet" type ="text/css"
               href="style.css">
-         <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'>
-        <script>
-            function addlist() {
-                for (var i = 0; i < 100; i++) {
-                    var list = document.getElementById("list");
-                    var item = document.createElement("li");
-                    var text = document.getElementById("inputText").value;
-                    item.textContent = text;
-                    list.appendChild(item);
-                }
-            }
-        </script>
-
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'>.
     </head>
     <body>
         <ul class="Nav">
@@ -34,10 +22,19 @@
             <li class="Nav"><a href="sitemap.html">SiteMap</a></li>
         </ul>
 
-
-        <textarea rows="10" cols="80" id="inputText">Make a list</textarea>
-        <button onclick="addlist();">Button</button>
-        <ol id="list"></ol>
+        <script>
+            var n = //userinput;
+            var r = //userinput;
+            var t = 1;
+            for (var i = n; i > 0; i++){
+            var t *= i;
+        }
+            for (var j =
+            n-r; j > 0; j++){
+            var q *= j;
+        }
+        var sleeep = t/q; // input onto pagebwith .value
+        </script>
 
     </body>
 </html>
