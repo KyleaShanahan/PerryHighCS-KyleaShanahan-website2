@@ -1,13 +1,19 @@
 
 function Radius(){
     var r = parseFloat (document.getElementById("r").value);
-    var ans = Math.PI * Math.pow(x , 2);
+    ans = Math.PI * Math.pow(r, 2);
+    var answer = document.getElementById("answer");
     answer.textContent = ans;
     var div = document.getElementById("ans");
-    var button = document.createElement("button");
+
+    if(sc == 0){
+       var button = document.createElement("button");
     button.onclick = "Round();";
     button.textContent = "Round Answer";
-    div.appendChild(button);
+    div.appendChild(button); 
+    } else {
+        //finish if statement
+    }
 }
 
 function round(){
