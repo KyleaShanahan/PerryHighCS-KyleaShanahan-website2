@@ -8,7 +8,7 @@ function Radius(){
 
     if(sc == 0){
        var button = document.createElement("button");
-    button.onclick = "Round();";
+    button.onclick = Round();;
     button.textContent = "Round Answer";
     div.appendChild(button); 
     } else {
