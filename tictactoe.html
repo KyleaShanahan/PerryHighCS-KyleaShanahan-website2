@@ -84,20 +84,9 @@ and open the template in the editor.
             }
         </style>
     </head>
-    <body>
-           <ul class="Nav">
-            <li class="Nav"><a class="active" href="index.html">Home</a></li>
-            <li class="Nav"><a href="bio.html">Biography</a></li>
-            <li class="Nav"><a href="breakout.html">Minigame</a></li>
-            <li class="Nav"><a href="popup.html">Popup</a></li>
-            <li class="Nav"><a href="htmltest.html">htmltest</a></li>
-            <li class="Nav"><a href="todolist.html">Todolist</a></li>  
-            <li class="Nav"><a href="tictactoe.html">TicTacToe</a></li>
-            <li class="Nav"><a href="Chalkboard.html">ChalkBoard</a></li>
-            <li class="Nav"><a href="MultiplicationTable.html">Mult.Table</a></li>
-            <li class="Nav"><a href="Mult.2Table.html">Slider</a></li>
-            <li class="Nav"><a href="sitemap.html">SiteMap</a></li>
-        </ul>
+    <body onload="buildMap('Nav');"> 
+        <script src="navbar.js"></script>
+        <div id="Nav"></div>
     <center>
         <table>
             <tr>
