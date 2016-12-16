@@ -37,29 +37,49 @@
         <hr>
         <h3><b>Random Images</b></h3>
         <a href = "https://en.wikipedia.org/wiki/Billie_Joe_Armstrong">
-            <img src = "Picture/Billie.jpg">
+            <img src = "Picture/Billie.jpg" onmouseover ="changebackground4();">
         </a>
         <a href = "https://en.wikipedia.org/wiki/Mike_Dirnt">
-            <img src = "Picture/Mike.jpg">
+            <img src = "Picture/Mike.jpg" onmouseover ="changebackground5();">
         </a>
         <a href = "https://en.wikipedia.org/wiki/Tr%C3%A9_Cool">
-            <img src = "Picture/Tre.jpg">
+            <img src = "Picture/Tre.jpg" onmouseover ="changebackground6();">
         </a>
         <a href = "https://en.wikipedia.org/wiki/Pink_Floyd">
-            <img src = "Picture/Floyd.jpg">
+            <img src = "Picture/Floyd.jpg" onmouseover ="changebackground2();">
         </a>
         <a href = "Picture/https://en.wikipedia.org/wiki/Angus_Young">
             <hr>
-            <img src = "Picture/Angus.jpg">
+            <img src = "Picture/Angus.jpg" onmouseover ="changebackground3();">
         </a>
 
 
 <br>
-
-<a href ="https://www.youtube.com/watch?v=yXM8CBHmQ-g" style="text-align: right;">
-    <img style="width:30px;height:30px;" align="right" src ="Picture/Skul.png">
-</a>
         
+<br>
+<a href ="https://www.youtube.com/watch?v=yXM8CBHmQ-g" style="text-align: right;" >
+    <img style="width:30px;height:30px;" align="right" src ="Picture/Skul.png" onmouseover ="changebackground1();">
+</a>
+<script>
+    function changebackground1(){
+        document.body.style.background = "url('Picture/Heckle.jpg')";
+    }   
+    function changebackground2(){
+       document.body.style.background = "url('Picture/Angus.jpg')"; 
+    }
+   function changebackground3(){
+       document.body.style.background = "url('Picture/Billie.jpg')"; 
+    }
+    function changebackground4(){
+       document.body.style.background = "url('Picture/Mike.jpg')"; 
+    }
+    function changebackground5(){
+       document.body.style.background = "url('Picture/Tre.jpg')"; 
+    }
+    function changebackground6(){
+       document.body.style.background = "url('Picture/Floyd.jpg')"; 
+    }
+</script>
     </body>
 </html>
 
