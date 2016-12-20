@@ -25,7 +25,8 @@ function buildMap(id) {
             "TicTacToe", "tictactoe.html",
             "ChalkBoard", "Chalkboard.html",
             "Multiplication Table", "MultiplicationTable.html",
-            "Slider", "Mult.2Table.html"
+            "Slider", "Mult.2Table.html",
+            "Crosshair", "crosshair.html"
             );
 
     var li = document.createElement("li");
@@ -39,7 +40,7 @@ function buildMap(id) {
     var div = document.createElement("div");
     div.className = "dropdown-content";
     li.appendChild(div);
-    for (var i = 0; i < 10; i = i + 2) {
+    for (var i = 0; i < 12; i = i + 2) {
         var li = document.createElement("li");
         div.appendChild(li);
         var a = document.createElement("a");
